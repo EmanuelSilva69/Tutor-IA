@@ -1,10 +1,16 @@
-Reconhecimentos e Direitos Autorais
+**Reconhecimentos e Direitos Autorais
+
 @autor: Emanuel Lopes Silva, Letícia Delfino De Araujo, Thales Aymar Fortes De Souza , Gabriel Felipe Carvalho Silva, Verônica Lima Costa.
-@contato: emanuel.silva@discente.ufma.br,
+
+@contato: emanuel.silva@discente.ufma.br
+
 @data última versão: 26/01/2025
+
 @versão: 1.0
+
 @outros repositórios: 
 https://github.com/EmanuelSilva69/Tutor-IA, https://github.com/lwticias-lelet, https://github.com/ThalesAymar ,https://github.com/gfcarvalhos , https://github.com/Veronicacosta-uihttps://github.com/Veronicacosta-ui 
+
 @Agradecimentos: Universidade Federal do Maranhão (UFMA), Professor Doutor Thales Levi Azevedo Valente, e colegas de curso.
 
 Copyright/License
