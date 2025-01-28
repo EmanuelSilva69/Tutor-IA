@@ -1,0 +1,2255 @@
+{
+  "name": "Tutor.IA oficial",
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ]
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        2100
+      ],
+      "id": "783e1dd4-ccec-4508-b335-553d99df1e7f",
+      "name": "WhatsApp Trigger1",
+      "webhookId": "80977633-b571-4f18-99d2-66af7e1f0a06",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "TAfj1YcseF6Olwu2",
+          "name": "WhatsApp OAuth account"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "583094021545547",
+        "recipientPhoneNumber": "={{ $('Text Classifier1').item.json.contacts[0].wa_id }}",
+        "textBody": "={{ $json.output }}",
+        "additionalFields": {
+          "previewUrl": false
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        2400,
+        2280
+      ],
+      "id": "8f6abe0c-cc69-4614-9401-db7679618ee4",
+      "name": "WhatsApp Business Cloud1",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZLcxhV1OE1QNcohy",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "updates": [
+          "message"
+        ],
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegramTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        -320,
+        2040
+      ],
+      "id": "5d90ec2c-3e49-4ac8-9964-de8402063046",
+      "name": "Telegram Trigger1",
+      "webhookId": "ba738d28-1ed3-4fd3-8e12-470588ce58c1",
+      "credentials": {
+        "telegramApi": {
+          "id": "gkmnOvnDFIwrR4BZ",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        320,
+        2160
+      ],
+      "id": "a4154bf3-4963-4ec9-8f35-67dac8f23e23",
+      "name": "OpenAI Chat Model",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        780,
+        2040
+      ],
+      "id": "50cc6ffc-b361-4b84-bd22-8bf6134f9065",
+      "name": "Telegram",
+      "credentials": {
+        "telegramApi": {
+          "id": "gkmnOvnDFIwrR4BZ",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        460,
+        2200
+      ],
+      "id": "b65ce983-779f-4379-9d80-dc452c8a68ed",
+      "name": "Window Buffer Memory"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "414b6938-0021-48ea-9227-cd628c6402dc",
+              "leftValue": "={{ $json.messages }}",
+              "rightValue": "",
+              "operator": {
+                "type": "array",
+                "operation": "exists",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        1240,
+        2100
+      ],
+      "id": "1ea50432-9e84-43ff-b135-3470b0b2c1cc",
+      "name": "Verifica se é mensagem mesmo"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        2020,
+        2260
+      ],
+      "id": "d4cb0dc5-6a38-4b5c-9b50-ec63e339dfc2",
+      "name": "OpenAI Chat Model1",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger1').item.json.contacts[0].wa_id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2160,
+        2280
+      ],
+      "id": "7625b3d6-a6af-4519-93e5-1862b7d1c2fb",
+      "name": "Window Buffer Memory1"
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -960,
+        700
+      ],
+      "id": "4d1dfbac-27fd-4c51-936a-a14768c2b70a",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7D4DePvY2E4YUSS2",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "={{ $json.snippet }}",
+        "options": {
+          "systemMessage": "Você é um bot que auxilia alunos a lembrarem de suas atividades. Toda vez que receber um input, ele será um email que o professor mandou para os alunos. Escreva um resumo da atividade lembrando os alunos do que deve ser feito e quando deve ser entregue.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -340,
+        760
+      ],
+      "id": "b4ad3e82-44ac-4106-a0f2-65fe6e82f26f",
+      "name": "AI Agent2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        -340,
+        1000
+      ],
+      "id": "891bbd24-a584-49b3-b8f4-9d5483217dc9",
+      "name": "OpenAI Chat Model2",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -220,
+        1020
+      ],
+      "id": "f5190d5b-d81d-4b16-a2a6-5941bc09afec",
+      "name": "Window Buffer Memory2"
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.snippet }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Atividades",
+              "description": "Classify texts that have \"Atividade\" in the snippet. They are colege work to the students"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        -800,
+        700
+      ],
+      "id": "3bc8feea-1cfc-45be-847c-670c44a645b9",
+      "name": "Text Classifier"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        -780,
+        900
+      ],
+      "id": "c22c1115-7d41-47fb-8c56-d8e17e10ea6d",
+      "name": "OpenAI Chat Model3",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "addLabels",
+        "messageId": "={{ $json.id }}",
+        "labelIds": [
+          "IMPORTANT"
+        ]
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        -420,
+        600
+      ],
+      "id": "6f3bbbf7-6552-497e-93a6-d388fb62d455",
+      "name": "Gmail",
+      "webhookId": "0863e5ca-f786-4265-998a-3cccc98317e5",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "7D4DePvY2E4YUSS2",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "=-4683213478",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        60,
+        880
+      ],
+      "id": "3d5a7d43-2577-4092-aee6-cb1fd9d70bc5",
+      "name": "Telegram1",
+      "credentials": {
+        "telegramApi": {
+          "id": "gkmnOvnDFIwrR4BZ",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.snippet }}",
+        "options": {
+          "systemMessage": "=Você é uma IA especializada em gerenciar eventos no Google Calendar.  \nHoje é: {{ $now }}  \nSua tarefa é criar um evento para uma atividade baseada nas informações recebidas por email. Siga estas instruções:  \n\n1. **Título**: Crie o título baseado no tema da atividade, como \"Atividade de Matemática\". A Variável Titulo é a que representa o Título.\n(ou substitua \"Matemática\" pelo tema encontrado na descrição do email).  \n2. **Data de Início**: Verifique a data especificada no Email,Inicialmente, bote a data de hoje, que é  {{ $now }} caso não apresente uma data de incio. Caso seja indicado a data de inicio, coloque ela ao invez da de hoje. A variável da data de inicio é Data_Inicial.\n3. **Data de Término**: Use a data informada no email. A data de termino deve ser após a data de inicio. A variável da data de término é Data_Final\n4. **Descrição**: Crie uma descrição detalhada e explicativa sobre a atividade como \"Está atividade começa na Data: e termina na Data: O conteúdo a ser feito é o que está a seguir: \" A variável da descrição é desc.\n5. **Lembrete**: Configure um lembrete para 1 dia antes do evento terminar.  \n\nCertifique-se de:\n- Sempre atribuir um título claro e informativo baseado na atividade.\n- Validar que o título seja gerado corretamente antes de criar o evento.\n- Caso o título não seja identificado, use \"Atividade para Alunos\" como fallback.  \nVocê só deve criar no máximo 1 evento, pois se não irá atrapalhar o aluno\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        -400,
+        300
+      ],
+      "id": "5bba5939-b596-4b25-bbdc-008b986bad8d",
+      "name": "AI Agent3"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        -400,
+        480
+      ],
+      "id": "e4cdf7a8-7fd2-4b80-820a-8ddc4bf67805",
+      "name": "OpenAI Chat Model4",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        -280,
+        480
+      ],
+      "id": "30570c81-8cbd-442b-9492-11511543a8e2",
+      "name": "Window Buffer Memory3"
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "tutoriatesteufma@gmail.com",
+          "mode": "list",
+          "cachedResultName": "tutoriatesteufma@gmail.com"
+        },
+        "start": "= {{ $fromAI('Data_Inicial') }}",
+        "end": "= {{ $fromAI('Data_final') }}",
+        "additionalFields": {
+          "description": "= {{ $fromAI('desc') }}",
+          "summary": "= {{ $fromAI('Titulo') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        -160,
+        460
+      ],
+      "id": "a8800b98-005e-4060-b9e4-68a4a3a593a3",
+      "name": "Google Calendar1",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "vxB64Mx1QOzOKNzv",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "calendarId": {
+          "__rl": true,
+          "value": "tutoriatesteufma@gmail.com",
+          "mode": "list",
+          "cachedResultName": "tutoriatesteufma@gmail.com"
+        },
+        "triggerOn": "eventStarted",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTrigger",
+      "typeVersion": 1,
+      "position": [
+        740,
+        780
+      ],
+      "id": "d162d688-af65-423b-a008-7ed78def6403",
+      "name": "Google Calendar Trigger",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "vxB64Mx1QOzOKNzv",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "=Datas: {{ $json.start.dateTime }} e {{ $json.end.dateTime }}. Atividade: {{ $json.summary }}, Descrição:{{ $json.description }}. ",
+        "options": {
+          "systemMessage": "Você é um bot que auxilia alunos a lembrarem de suas atividades. Toda vez que receber um input, ele será um email que o professor mandou para os alunos. Escreva um resumo da atividade lembrando os alunos do que deve ser feito e quando deve ser entregue.\n"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1060,
+        780
+      ],
+      "id": "7d3ff418-c755-4c68-bb29-2fd35eebbaab",
+      "name": "AI Agent4"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1060,
+        960
+      ],
+      "id": "d1ec8d96-2bbd-4824-8708-2b79155098f5",
+      "name": "OpenAI Chat Model5",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1180,
+        960
+      ],
+      "id": "1c06cd78-927b-4d9a-a09d-b44654d0882b",
+      "name": "Window Buffer Memory4"
+    },
+    {
+      "parameters": {
+        "chatId": "=-4683213478",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1480,
+        780
+      ],
+      "id": "c87a5bbb-4351-41a9-b052-ff57dc4b2383",
+      "name": "Telegram2",
+      "credentials": {
+        "telegramApi": {
+          "id": "gkmnOvnDFIwrR4BZ",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "agent": "conversationalAgent",
+        "promptType": "define",
+        "text": "=Datas: {{ $json.start.dateTime }} e {{ $json.end.dateTime }}. Atividade: {{ $json.summary }}, Descrição:{{ $json.description }}. \nA Atividade ACABOU!!",
+        "options": {
+          "systemMessage": "Você é um bot que auxilia alunos. Avise que a atividade acabou"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1060,
+        1540
+      ],
+      "id": "a6b5b89e-8618-41b2-a51b-bc37b080c3e7",
+      "name": "AI Agent5"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1060,
+        1720
+      ],
+      "id": "652ac3ff-e619-49ab-a401-a7f3e6345a80",
+      "name": "OpenAI Chat Model6",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $json.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        1180,
+        1720
+      ],
+      "id": "2319be9a-11d4-4def-bdf9-6d9a06121236",
+      "name": "Window Buffer Memory5"
+    },
+    {
+      "parameters": {
+        "chatId": "=-4683213478",
+        "text": "={{ $json.output }}",
+        "additionalFields": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        1480,
+        1540
+      ],
+      "id": "73fc4fef-b1e3-44f6-9f3c-b063e25551b4",
+      "name": "Telegram3",
+      "credentials": {
+        "telegramApi": {
+          "id": "gkmnOvnDFIwrR4BZ",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "calendarId": {
+          "__rl": true,
+          "value": "tutoriatesteufma@gmail.com",
+          "mode": "list",
+          "cachedResultName": "tutoriatesteufma@gmail.com"
+        },
+        "triggerOn": "eventEnded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleCalendarTrigger",
+      "typeVersion": 1,
+      "position": [
+        820,
+        1540
+      ],
+      "id": "f0c5f5f6-1987-45aa-bb21-c0a9655b4eb7",
+      "name": "Google Calendar Trigger1",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "vxB64Mx1QOzOKNzv",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.output }}",
+        "options": {
+          "systemMessage": "=Você é uma IA especializada em gerenciar eventos no Google Calendar.  \nHoje é: {{ $now }}  \nSua tarefa é criar um evento secundário ao mencionado no input, no mesmo dia da data de Término, como se fosse um ultimo aviso ao aluno. Crie faltando algumas horas para o término da atividade.Você só deve criar no máximo 1 evento, pois se não irá atrapalhar o aluno"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        0,
+        0
+      ],
+      "id": "04130907-8c57-4b85-a7aa-436a57cb45d4",
+      "name": "AI Agent6"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        -20,
+        180
+      ],
+      "id": "c6d7635f-7f25-4192-afcf-82206b7b53cf",
+      "name": "OpenAI Chat Model7",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Text Classifier').item.json.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        100,
+        200
+      ],
+      "id": "ed6ef471-ecf6-4fc1-b94a-ccca76a590b5",
+      "name": "Window Buffer Memory6"
+    },
+    {
+      "parameters": {
+        "calendar": {
+          "__rl": true,
+          "value": "tutoriatesteufma@gmail.com",
+          "mode": "list",
+          "cachedResultName": "tutoriatesteufma@gmail.com"
+        },
+        "start": "= {{ $fromAI('Data_Inicial') }}",
+        "end": "= {{ $fromAI('Data_final') }}",
+        "additionalFields": {
+          "description": "= {{ $fromAI('desc') }}",
+          "summary": "= {{ $fromAI('Titulo') }}"
+        }
+      },
+      "type": "n8n-nodes-base.googleCalendarTool",
+      "typeVersion": 1.2,
+      "position": [
+        220,
+        200
+      ],
+      "id": "d084386c-34f8-4619-8847-5b5e68769b98",
+      "name": "Google Calendar",
+      "credentials": {
+        "googleCalendarOAuth2Api": {
+          "id": "vxB64Mx1QOzOKNzv",
+          "name": "Google Calendar account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "583094021545547",
+        "recipientPhoneNumber": "={{ $json.numero.toString() }}",
+        "textBody": "={{ $json.output }}",
+        "additionalFields": {
+          "previewUrl": false
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        580,
+        900
+      ],
+      "id": "1494c2cc-c3e9-4cfc-99b3-a6bfe894913d",
+      "name": "WhatsApp Business Cloud",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZLcxhV1OE1QNcohy",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.messages[0].text.body }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Resumo",
+              "description": "if the request have \"resumo\" in it, add the following prompt before the message of the user \"Você é um assistente especializado em gerar resumos claros, concisos e bem organizados. Sempre identifique os pontos principais do conteúdo, organize-os de forma lógica e elimine informações redundantes. Certifique-se de que o resumo seja adequado ao público-alvo, com linguagem acessível e foco nos tópicos mais relevantes. Caso necessário, adicione uma frase introdutória que contextualize o tema e uma conclusão que sintetize a essência do conteúdo. Resuma o seguinte texto ou material\" to enrich the prompt"
+            },
+            {
+              "category": "Esboçodetrabalho",
+              "description": "if the request have \"esboço\" or \"esboco\" in it, add the folowing prompt to enrich the response:\"Você é um especialista em estruturar trabalhos acadêmicos. Sua tarefa é criar um esboço claro e detalhado com base no tema ou material fornecido. Divida o trabalho em seções lógicas e coerentes, como introdução, desenvolvimento e conclusão. Certifique-se de incluir subtópicos, exemplos e possíveis fontes de pesquisa, indicando onde cada ideia se encaixa no fluxo geral. Use uma linguagem formal e acadêmica, garantindo que o esboço sirva como base sólida para o desenvolvimento do trabalho. Aqui está o tema ou material para o qual preciso de um esboço\""
+            },
+            {
+              "category": "Planejamento de estudos",
+              "description": "if the request has \"Planejamento\" in it, add the follown prompt to enrich the response to the user:\"Você é um assistente especializado em criar planejamentos de estudo personalizados e eficientes. Considere o tempo disponível, o nível de dificuldade do conteúdo, e a necessidade de equilibrar revisão, prática e aprendizado de novos tópicos. Estruture um cronograma detalhado, indicando tarefas diárias, tempos recomendados para cada atividade e estratégias de estudo eficazes, como resumos, mapas mentais ou simulados. Adicione dicas de organização e intervalos de descanso para maximizar a produtividade. Com base nos seguintes objetivos e restrições, crie um planejamento de estudos\""
+            }
+          ]
+        },
+        "options": {
+          "fallback": "other"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        1460,
+        2080
+      ],
+      "id": "9b6e4027-e513-4615-a73e-c05ef0e23ee1",
+      "name": "Text Classifier1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1480,
+        2300
+      ],
+      "id": "be9977c5-ab32-4d01-9a67-807b05486f0b",
+      "name": "OpenAI Chat Model8",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "inputText": "={{ $json.message.text }}",
+        "categories": {
+          "categories": [
+            {
+              "category": "Resumo",
+              "description": "if the request have \"resumo\" in it, set to true"
+            },
+            {
+              "category": "Esboçodetrabalho",
+              "description": "if the request have \"esboço\" or \"esboco\" in it"
+            },
+            {
+              "category": "Planejamento de estudos",
+              "description": "if the request has \"Planejamento\" in it, add the follown prompt to enrich the response to the user:\"Você é um assistente especializado em criar planejamentos de estudo personalizados e eficientes. Considere o tempo disponível, o nível de dificuldade do conteúdo, e a necessidade de equilibrar revisão, prática e aprendizado de novos tópicos. Estruture um cronograma detalhado, indicando tarefas diárias, tempos recomendados para cada atividade e estratégias de estudo eficazes, como resumos, mapas mentais ou simulados. Adicione dicas de organização e intervalos de descanso para maximizar a produtividade. Com base nos seguintes objetivos e restrições, crie um planejamento de estudos\""
+            }
+          ]
+        },
+        "options": {
+          "fallback": "other"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.textClassifier",
+      "typeVersion": 1,
+      "position": [
+        -160,
+        2040
+      ],
+      "id": "d0a70519-cc62-4379-9a1c-0f355c2350c6",
+      "name": "Text Classifier2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        -160,
+        2260
+      ],
+      "id": "c65e3343-5e46-4e33-a30f-295de1630528",
+      "name": "OpenAI Chat Model11",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        320,
+        2460
+      ],
+      "id": "93aa46a6-6415-48ba-95a3-1025b3eba0ce",
+      "name": "OpenAI Chat Model12",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        460,
+        2500
+      ],
+      "id": "1d0a1571-37e2-4d20-be56-84adeb13a0c7",
+      "name": "Window Buffer Memory9"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        300,
+        2740
+      ],
+      "id": "741a7c55-c86d-456e-81f0-f25946463d94",
+      "name": "OpenAI Chat Model13",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        420,
+        2740
+      ],
+      "id": "85cc3d5d-82cd-409e-84a7-60a1cd52134d",
+      "name": "Window Buffer Memory10"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        280,
+        3060
+      ],
+      "id": "964fbdc9-ad52-455d-aa2d-2623dbadc7c2",
+      "name": "OpenAI Chat Model14",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('Telegram Trigger1').item.json.message.chat.id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        400,
+        3060
+      ],
+      "id": "8173f1f9-38e3-4ad8-a033-38121812b7a3",
+      "name": "Window Buffer Memory11"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        2580
+      ],
+      "id": "bc0c6bb1-1d57-4e18-a2bc-6d4c814f082c",
+      "name": "OpenAI Chat Model15",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger1').item.json.contacts[0].wa_id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2140,
+        2580
+      ],
+      "id": "9391df12-d98c-4d25-931c-03e512c25aea",
+      "name": "Window Buffer Memory12"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        2000,
+        2880
+      ],
+      "id": "6a2a380c-93ab-461b-9db2-a7bb4844f308",
+      "name": "OpenAI Chat Model16",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger1').item.json.contacts[0].wa_id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2140,
+        2920
+      ],
+      "id": "1824534c-2f60-495a-b2cc-3ec5094a7c2d",
+      "name": "Window Buffer Memory13"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.1,
+      "position": [
+        1980,
+        3180
+      ],
+      "id": "085358ac-e6ce-4aa8-803c-ae470ad443ed",
+      "name": "OpenAI Chat Model17",
+      "credentials": {
+        "openAiApi": {
+          "id": "RVIV4G3slMps3cHK",
+          "name": "OpenAi account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sessionIdType": "customKey",
+        "sessionKey": "={{ $('WhatsApp Trigger1').item.json.contacts[0].wa_id }}",
+        "contextWindowLength": 10
+      },
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1.3,
+      "position": [
+        2100,
+        3180
+      ],
+      "id": "44c7ef2d-554d-4d1e-97ff-0420332418d8",
+      "name": "Window Buffer Memory14"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }} ",
+        "options": {
+          "systemMessage": "=Você é um assistente especializado em gerar resumos claros, concisos e bem organizados. Sempre identifique os pontos principais do conteúdo, organize-os de forma lógica e elimine informações redundantes. Certifique-se de que o resumo seja adequado ao público-alvo, com linguagem acessível e foco nos tópicos mais relevantes. Caso necessário, adicione uma frase introdutória que contextualize o tema e uma conclusão que sintetize a essência do conteúdo. Resuma o seguinte texto ou material\nCaso o usuário tente iniciar ou desviar a conversa para assuntos não acadêmicos ou não relacionados à faculdade, responda educadamente que você só pode ajudar com temas acadêmicos. Reforce que está disponível para auxiliar em qualquer necessidade acadêmica, mas evite se engajar em outros tipos de conversa. Aplique essa diretriz durante toda a interação.\nEntretanto, para comprimentos e conversas leves, permita o dialogo"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        300,
+        2000
+      ],
+      "id": "3eaa2143-0e07-4f36-a835-bf35482f128f",
+      "name": "Resumo"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }} ",
+        "options": {
+          "systemMessage": "=Você é um especialista em estruturar trabalhos acadêmicos. Sua tarefa é criar um esboço claro e detalhado com base no tema ou material fornecido. Divida o trabalho em seções lógicas e coerentes, como introdução, desenvolvimento e conclusão. Certifique-se de incluir subtópicos, exemplos e possíveis fontes de pesquisa, indicando onde cada ideia se encaixa no fluxo geral. Use uma linguagem formal e acadêmica, garantindo que o esboço sirva como base sólida para o desenvolvimento do trabalho. Aqui está o tema ou material para o qual preciso de um esboço\nCaso o usuário tente iniciar ou desviar a conversa para assuntos não acadêmicos ou não relacionados à faculdade, responda educadamente que você só pode ajudar com temas acadêmicos. Reforce que está disponível para auxiliar em qualquer necessidade acadêmica, mas evite se engajar em outros tipos de conversa. Aplique essa diretriz durante toda a interação."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        300,
+        2300
+      ],
+      "id": "c3510d58-61cf-43c0-98dd-cb6de53b77bc",
+      "name": "Esboço"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }} ",
+        "options": {
+          "systemMessage": "=Você é um assistente especializado em criar planejamentos de estudo personalizados e eficientes. Considere o tempo disponível, o nível de dificuldade do conteúdo, e a necessidade de equilibrar revisão, prática e aprendizado de novos tópicos. Estruture um cronograma detalhado, indicando tarefas diárias, tempos recomendados para cada atividade e estratégias de estudo eficazes, como resumos, mapas mentais ou simulados. Adicione dicas de organização e intervalos de descanso para maximizar a produtividade. Com base nos seguintes objetivos e restrições, crie um planejamento de estudos:\nCaso o usuário tente iniciar ou desviar a conversa para assuntos não acadêmicos ou não relacionados à faculdade, responda educadamente que você só pode ajudar com temas acadêmicos. Reforce que está disponível para auxiliar em qualquer necessidade acadêmica, mas evite se engajar em outros tipos de conversa. Aplique essa diretriz durante toda a interação."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        300,
+        2600
+      ],
+      "id": "0535077f-4e0a-4c02-bca2-139f58b54c50",
+      "name": "Planejamento"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.message.text }} ",
+        "options": {
+          "systemMessage": "=Você é um assistente virtual exclusivamente dedicado a assuntos acadêmicos e relacionados à faculdade. Sua principal função é fornecer informações, orientações e suporte para atividades como estudos, trabalhos, organização acadêmica e planejamento. Caso o usuário tente iniciar ou desviar a conversa para assuntos não acadêmicos ou não relacionados à faculdade, responda educadamente que você só pode ajudar com temas acadêmicos. Reforce que está disponível para auxiliar em qualquer necessidade acadêmica, mas evite se engajar em outros tipos de conversa. Aplique essa diretriz durante toda a interação.\n\nExemplo de resposta para assuntos fora do escopo: \"Desculpe, mas só posso ajudar com questões acadêmicas ou relacionadas à faculdade. Estou aqui para ajudar com estudos, organização ou qualquer outra necessidade acadêmica que você tenha. Como posso te ajudar com isso?\"\nEntretanto, para comprimentos e conversas leves, permita o dialogo. Permita um nível limitado de interações sociais, e respostas breves para elogios e conversas"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        280,
+        2920
+      ],
+      "id": "a57be58b-7021-413c-8de5-593d1e9be2d0",
+      "name": "chat"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.messages[0].text.body }}",
+        "options": {
+          "systemMessage": "=Você é um assistente especializado em gerar resumos claros, concisos e bem organizados. Sempre identifique os pontos principais do conteúdo, organize-os de forma lógica e elimine informações redundantes. Certifique-se de que o resumo seja adequado ao público-alvo, com linguagem acessível e foco nos tópicos mais relevantes. Caso necessário, adicione uma frase introdutória que contextualize o tema e uma conclusão que sintetize a essência do conteúdo. Resuma o seguinte texto ou material\nCaso o usuário tente iniciar ou desviar a conversa para assuntos não acadêmicos ou não relacionados à faculdade, responda educadamente que você só pode ajudar com temas acadêmicos. Reforce que está disponível para auxiliar em qualquer necessidade acadêmica, mas evite se engajar em outros tipos de conversa. Aplique essa diretriz durante toda a interação."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        2000,
+        2080
+      ],
+      "id": "add23efc-4e77-4c0d-88fc-685ff3846d25",
+      "name": "Resumo1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.messages[0].text.body }}",
+        "options": {
+          "systemMessage": "=Você é um especialista em estruturar trabalhos acadêmicos. Sua tarefa é criar um esboço claro e detalhado com base no tema ou material fornecido. Divida o trabalho em seções lógicas e coerentes, como introdução, desenvolvimento e conclusão. Certifique-se de incluir subtópicos, exemplos e possíveis fontes de pesquisa, indicando onde cada ideia se encaixa no fluxo geral. Use uma linguagem formal e acadêmica, garantindo que o esboço sirva como base sólida para o desenvolvimento do trabalho. Aqui está o tema ou material para o qual preciso de um esboço\nCaso o usuário tente iniciar ou desviar a conversa para assuntos não acadêmicos ou não relacionados à faculdade, responda educadamente que você só pode ajudar com temas acadêmicos. Reforce que está disponível para auxiliar em qualquer necessidade acadêmica, mas evite se engajar em outros tipos de conversa. Aplique essa diretriz durante toda a interação."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1980,
+        2400
+      ],
+      "id": "d5296cf4-3f3d-4f77-8fb9-b2edff4a2b50",
+      "name": "Esboço1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.messages[0].text.body }}",
+        "options": {
+          "systemMessage": "=Você é um assistente especializado em criar planejamentos de estudo personalizados e eficientes. Considere o tempo disponível, o nível de dificuldade do conteúdo, e a necessidade de equilibrar revisão, prática e aprendizado de novos tópicos. Estruture um cronograma detalhado, indicando tarefas diárias, tempos recomendados para cada atividade e estratégias de estudo eficazes, como resumos, mapas mentais ou simulados. Adicione dicas de organização e intervalos de descanso para maximizar a produtividade. Com base nos seguintes objetivos e restrições, crie um planejamento de estudos:\nCaso o usuário tente iniciar ou desviar a conversa para assuntos não acadêmicos ou não relacionados à faculdade, responda educadamente que você só pode ajudar com temas acadêmicos. Reforce que está disponível para auxiliar em qualquer necessidade acadêmica, mas evite se engajar em outros tipos de conversa. Aplique essa diretriz durante toda a interação."
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1980,
+        2720
+      ],
+      "id": "9debca26-f183-4a2b-a972-c4d3709cd22b",
+      "name": "Planejamento1"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.messages[0].text.body }}",
+        "options": {
+          "systemMessage": "Você é um chatbot assistente, em que o usuário não pediu uma das funções principais, então converse com ele sobre assuntos academicos, sem desviar do contextoo u permitir conteúdos fora do ambito escolar\n Permita um nível limitado de interações sociais, e respostas breves para elogios e conversas"
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 1.7,
+      "position": [
+        1980,
+        3040
+      ],
+      "id": "d9c3c467-dd5a-4950-9464-c3bdc980f92a",
+      "name": "chat1"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8",
+          "mode": "list",
+          "cachedResultName": "numeros",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8/edit#gid=0"
+        },
+        "combineFilters": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        20,
+        440
+      ],
+      "id": "2cd27c9d-7a39-49a1-811f-ea849d9304fa",
+      "name": "Google Sheets2",
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "XnlAq7N1x1ogQ0iM",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        220,
+        720
+      ],
+      "id": "7e0887f6-f942-4d4a-baaf-c977e6522251",
+      "name": "Merge"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        440,
+        720
+      ],
+      "id": "e0071fb6-e5b5-47fe-8e50-00115219f416",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "583094021545547",
+        "recipientPhoneNumber": "={{ $json.numero.toString() }}",
+        "textBody": "={{ $json.output }}",
+        "additionalFields": {
+          "previewUrl": false
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        500
+      ],
+      "id": "062b2c8b-a6f2-4149-88d6-d27ffc4cc0e0",
+      "name": "WhatsApp Business Cloud2",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZLcxhV1OE1QNcohy",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8",
+          "mode": "list",
+          "cachedResultName": "numeros",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8/edit#gid=0"
+        },
+        "combineFilters": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1380,
+        40
+      ],
+      "id": "60abb003-dd6e-4dc3-bd26-00923d890db8",
+      "name": "Google Sheets",
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "XnlAq7N1x1ogQ0iM",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1580,
+        320
+      ],
+      "id": "f91673e8-bcc5-4488-9d5b-13ec747a2221",
+      "name": "Merge1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1800,
+        320
+      ],
+      "id": "85261401-4576-4577-beb1-63908e23bf45",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "583094021545547",
+        "recipientPhoneNumber": "={{ $json.numero.toString() }}",
+        "textBody": "={{ $json.output }}",
+        "additionalFields": {
+          "previewUrl": false
+        },
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        1540
+      ],
+      "id": "d935dd21-0bd2-44d3-8bdf-188098c99155",
+      "name": "WhatsApp Business Cloud3",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "ZLcxhV1OE1QNcohy",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8",
+          "mode": "list",
+          "cachedResultName": "numeros",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Página1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1l-pg5mp4NU0LMi7BDs1otBLGJA0d8X7Pb8Ql9Bp2_z8/edit#gid=0"
+        },
+        "combineFilters": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.5,
+      "position": [
+        1420,
+        1080
+      ],
+      "id": "2f75478f-1fcf-4b1b-bcaf-75eab8c421c4",
+      "name": "Google Sheets1",
+      "alwaysOutputData": false,
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "XnlAq7N1x1ogQ0iM",
+          "name": "Google Sheets account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "mode": "combineBySql"
+      },
+      "type": "n8n-nodes-base.merge",
+      "typeVersion": 3,
+      "position": [
+        1620,
+        1360
+      ],
+      "id": "22287f34-2350-4191-8744-66ec7c7a5d05",
+      "name": "Merge2"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        1840,
+        1360
+      ],
+      "id": "557cfdd9-a365-45c2-b70a-2d2b5091c8b4",
+      "name": "Loop Over Items2"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "WhatsApp Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Verifica se é mensagem mesmo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Telegram Trigger1": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Resumo",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory": {
+      "ai_memory": [
+        [
+          {
+            "node": "Resumo",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verifica se é mensagem mesmo": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model1": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Resumo1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory1": {
+      "ai_memory": [
+        [
+          {
+            "node": "Resumo1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model2": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory2": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent2",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model3": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier": {
+      "main": [
+        [
+          {
+            "node": "Gmail",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Agent3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "AI Agent2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent2": {
+      "main": [
+        [
+          {
+            "node": "Telegram1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Sheets2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 1
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model4": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory3": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent3": {
+      "main": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar1": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent3",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent4": {
+      "main": [
+        [
+          {
+            "node": "Telegram2",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model5": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent4",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory4": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent4",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar Trigger": {
+      "main": [
+        [
+          {
+            "node": "AI Agent4",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent5": {
+      "main": [
+        [
+          {
+            "node": "Telegram3",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 1
+          },
+          {
+            "node": "Google Sheets1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent5",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory5": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent5",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar Trigger1": {
+      "main": [
+        [
+          {
+            "node": "AI Agent5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory6": {
+      "ai_memory": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Calendar": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent6",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model8": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier1": {
+      "main": [
+        [
+          {
+            "node": "Resumo1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Esboço1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Planejamento1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "chat1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model11": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Text Classifier2",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Text Classifier2": {
+      "main": [
+        [
+          {
+            "node": "Resumo",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Esboço",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Planejamento",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "chat",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model12": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Esboço",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory9": {
+      "ai_memory": [
+        [
+          {
+            "node": "Esboço",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model13": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Planejamento",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory10": {
+      "ai_memory": [
+        [
+          {
+            "node": "Planejamento",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model14": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "chat",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory11": {
+      "ai_memory": [
+        [
+          {
+            "node": "chat",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model15": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Esboço1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory12": {
+      "ai_memory": [
+        [
+          {
+            "node": "Esboço1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model16": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Planejamento1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory13": {
+      "ai_memory": [
+        [
+          {
+            "node": "Planejamento1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Chat Model17": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "chat1",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Window Buffer Memory14": {
+      "ai_memory": [
+        [
+          {
+            "node": "chat1",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resumo": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esboço": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Planejamento": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chat": {
+      "main": [
+        [
+          {
+            "node": "Telegram",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Resumo1": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Business Cloud1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Esboço1": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Business Cloud1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Planejamento1": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Business Cloud1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "chat1": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Business Cloud1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp Business Cloud": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets2": {
+      "main": [
+        [
+          {
+            "node": "Merge",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "WhatsApp Business Cloud",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp Business Cloud2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets": {
+      "main": [
+        [
+          {
+            "node": "Merge1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items1": {
+      "main": [
+        [],
+        [
+          {
+            "node": "WhatsApp Business Cloud2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "WhatsApp Business Cloud3": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Google Sheets1": {
+      "main": [
+        [
+          {
+            "node": "Merge2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Merge2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items2": {
+      "main": [
+        [],
+        [
+          {
+            "node": "WhatsApp Business Cloud3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4cbb8d5d-0bc0-49da-8ca8-590ced7d7edf",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "98fbf0b3405270550a43f6b05518d2eba0a0b71c1585113b5801d98208704309"
+  },
+  "id": "d0g4E7cuwwJAC7bG",
+  "tags": []
+}
