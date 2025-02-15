@@ -6,7 +6,7 @@
 
 @data última versão: 26/01/2025
 
-@versão: 1.0
+@versão: 1.0.0
 
 @outros repositórios: 
 https://github.com/EmanuelSilva69/Tutor-IA, https://github.com/lwticias-lelet, https://github.com/ThalesAymar ,https://github.com/gfcarvalhos , https://github.com/Veronicacosta-uihttps://github.com/Veronicacosta-ui 
