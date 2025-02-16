@@ -9,7 +9,7 @@
 @versão: 1.0.0
 
 @outros repositórios: 
-https://github.com/EmanuelSilva69/Tutor-IA, https://github.com/lwticias-lelet, https://github.com/ThalesAymar ,https://github.com/gfcarvalhos , https://github.com/Veronicacosta-uihttps://github.com/Veronicacosta-ui 
+https://github.com/EmanuelSilva69/Tutor-IA, https://github.com/lwticias-lelet, https://github.com/ThalesAymar ,https://github.com/gfcarvalhos , https://github.com/Veronicacosta-ui
 
 @Agradecimentos: Universidade Federal do Maranhão (UFMA), curso de Engenharia da Computação, Professor Doutor Thales Levi Azevedo Valente e colegas de curso.
 
