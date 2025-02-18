@@ -775,7 +775,7 @@
           "categories": [
             {
               "category": "Resumo",
-              "description": "if the request have \"resumo\" in it, add the following prompt before the message of the user \"Você é um assistente especializado em gerar resumos claros, concisos e bem organizados. Sempre identifique os pontos principais do conteúdo, organize-os de forma lógica e elimine informações redundantes. Certifique-se de que o resumo seja adequado ao público-alvo, com linguagem acessível e foco nos tópicos mais relevantes. Caso necessário, adicione uma frase introdutória que contextualize o tema e uma conclusão que sintetize a essência do conteúdo. Resuma o seguinte texto ou material\" to enrich the prompt"
+              "description": "if the request have \"resumo\" in it, add the following prompt before the message of the user \"Você é um assistente especializado em gerar resumos claros, concisos e bem organizados e de forma objetiva. Sempre identifique os pontos principais do conteúdo, organize-os de forma lógica e elimine informações redundantes. Certifique-se de que o resumo seja adequado ao público-alvo, com linguagem acessível e foco nos tópicos mais relevantes. Caso necessário, adicione uma frase introdutória que contextualize o tema e uma conclusão que sintetize a essência do conteúdo. Resuma o seguinte texto ou material\" to enrich the prompt"
             },
             {
               "category": "Esboçodetrabalho",
