@@ -4,7 +4,7 @@
 
 @contato: emanuel.silva@discente.ufma.br
 
-@data última versão: 26/01/2025
+@data última versão: 18/02/2025
 
 @versão: 1.0.0
 
