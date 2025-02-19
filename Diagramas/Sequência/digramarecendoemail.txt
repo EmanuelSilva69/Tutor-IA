@@ -1,0 +1,22 @@
+@startuml
+actor Gmail as "Gmail (Sistema Externo)"
+participant GmailTrigger as "Gmail Trigger"
+participant TextClassifier as "Classificador de Texto"
+participant AIAgent as "Agente de IA"
+participant GoogleCalendar as "Google Calendar"
+participant WhatsAppAPI as "WhatsApp API"
+participant TelegramAPI as "Telegram API"
+
+Gmail -> GmailTrigger: Novo email detectado
+GmailTrigger -> TextClassifier: Analisa relevância do email
+alt Email irrelevante
+    TextClassifier -> Gmail: Marca email como "Não relevante"
+    return
+else Email relevante
+    TextClassifier -> Gmail: Marca email como "Relevante"
+    TextClassifier -> AIAgent: Gera resumo do email
+    AIAgent -> GoogleCalendar: Cria evento no calendário
+    AIAgent -> WhatsAppAPI: Envia resumo ao WhatsApp
+    AIAgent -> TelegramAPI: Envia resumo ao Telegram
+end
+@enduml
