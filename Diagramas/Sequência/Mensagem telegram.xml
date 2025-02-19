@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article lang="">
+  <para>@startuml&#13;</para>
+  <para>actor Usuario as "UsuÃ¡rio"&#13;</para>
+  <para>participant TelegramTrigger as "Telegram Trigger"&#13;</para>
+  <para>participant TextClassifier as "Classificador de Texto"&#13;</para>
+  <para>participant AIAgent as "Agente de IA"&#13;</para>
+  <para>participant TelegramAPI as "Telegram API"&#13;</para>
+  <para>&#13;</para>
+  <para>Usuario -&gt; TelegramTrigger: Envia mensagem&#13;</para>
+  <para>TelegramTrigger -&gt; TelegramTrigger: Valida mensagem e remetente&#13;</para>
+  <para>alt Mensagem irrelevante&#13;</para>
+  <para>    TelegramTrigger -&gt; Usuario: Responde "Mensagem fora do escopo acadÃªmico"&#13;</para>
+  <para>    return&#13;</para>
+  <para>else Mensagem relevante&#13;</para>
+  <para>    TelegramTrigger -&gt; TextClassifier: Classifica o conteÃºdo&#13;</para>
+  <para>    TextClassifier -&gt; AIAgent: Gera resposta com IA&#13;</para>
+  <para>    AIAgent -&gt; TelegramAPI: Envia resposta&#13;</para>
+  <para>    TelegramAPI -&gt; Usuario: Mensagem entregue&#13;</para>
+  <para>end&#13;</para>
+  <para>@enduml</para>
+</article>
