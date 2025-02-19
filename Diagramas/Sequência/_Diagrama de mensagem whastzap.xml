@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article lang="">
+  <para>&#13;</para>
+  <para>@startuml&#13;</para>
+  <para>actor Usuario as "UsuÃ¡rio"&#13;</para>
+  <para>participant WhatsAppTrigger as "WhatsApp Trigger"&#13;</para>
+  <para>participant TextClassifier as "Classificador de Texto"&#13;</para>
+  <para>participant AIAgent as "Agente de IA"&#13;</para>
+  <para>participant WhatsAppCloud as "WhatsApp Business Cloud"&#13;</para>
+  <para>&#13;</para>
+  <para>Usuario -&gt; WhatsAppTrigger: Envia mensagem&#13;</para>
+  <para>WhatsAppTrigger -&gt; WhatsAppTrigger: Verifica validade da mensagem&#13;</para>
+  <para>alt Mensagem invÃ¡lida&#13;</para>
+  <para>    WhatsAppTrigger -&gt; Usuario: Responde "Mensagem nÃ£o compreendida"&#13;</para>
+  <para>    return&#13;</para>
+  <para>else Mensagem vÃ¡lida&#13;</para>
+  <para>    WhatsAppTrigger -&gt; TextClassifier: Classifica o tipo de mensagem&#13;</para>
+  <para>    TextClassifier -&gt; AIAgent: Processa conteÃºdo (Resumo/EsboÃ§o/Planejamento)&#13;</para>
+  <para>    AIAgent -&gt; WhatsAppCloud: Envia resposta&#13;</para>
+  <para>    WhatsAppCloud -&gt; Usuario: Resposta enviada&#13;</para>
+  <para>end&#13;</para>
+  <para>@enduml</para>
+</article>
