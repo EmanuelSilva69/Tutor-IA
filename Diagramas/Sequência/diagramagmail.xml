@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article lang="">
+  <para>@startuml&#13;</para>
+  <para>actor Gmail as "Gmail"&#13;</para>
+  <para>participant GmailTrigger as "Gmail Trigger"&#13;</para>
+  <para>participant TextClassifier as "Classificador de Texto"&#13;</para>
+  <para>participant AIAgent as "Agente de IA"&#13;</para>
+  <para>participant GoogleCalendar as "Google Calendar"&#13;</para>
+  <para>participant WhatsAppAPI as "WhatsApp API"&#13;</para>
+  <para>participant TelegramAPI as "Telegram API"&#13;</para>
+  <para>&#13;</para>
+  <para>Gmail -&gt; GmailTrigger: Novo email detectado&#13;</para>
+  <para>GmailTrigger -&gt; TextClassifier: Analisa relevÃ¢ncia do email&#13;</para>
+  <para>alt Email irrelevante&#13;</para>
+  <para>    TextClassifier -&gt; GmailTrigger: Marca email como "NÃ£o relevante"&#13;</para>
+  <para>    return&#13;</para>
+  <para>else Email relevante&#13;</para>
+  <para>    TextClassifier -&gt; AIAgent: Gera resumo do email&#13;</para>
+  <para>    AIAgent -&gt; GoogleCalendar: Cria/atualiza evento no calendÃ¡rio&#13;</para>
+  <para>    AIAgent -&gt; WhatsAppAPI: Envia resumo ao WhatsApp&#13;</para>
+  <para>    AIAgent -&gt; TelegramAPI: Envia resumo ao Telegram&#13;</para>
+  <para>end&#13;</para>
+  <para>@enduml</para>
+</article>
