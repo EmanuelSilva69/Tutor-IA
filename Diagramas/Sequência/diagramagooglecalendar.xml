@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article lang="">
+  <para>@startuml&#13;</para>
+  <para>actor GoogleCalendar as "Google Calendar"&#13;</para>
+  <para>participant GoogleCalendarTrigger as "Google Calendar Trigger"&#13;</para>
+  <para>participant AIAgent as "Agente de IA"&#13;</para>
+  <para>participant WhatsAppAPI as "WhatsApp API"&#13;</para>
+  <para>participant TelegramAPI as "Telegram API"&#13;</para>
+  <para>&#13;</para>
+  <para>GoogleCalendar -&gt; GoogleCalendarTrigger: NotificaÃ§Ã£o sobre tÃ©rmino de evento&#13;</para>
+  <para>GoogleCalendarTrigger -&gt; AIAgent: Processa resumo do evento concluÃ­do&#13;</para>
+  <para>AIAgent -&gt; AIAgent: Gera resumo detalhado (ex.: tÃ­tulo, duraÃ§Ã£o, tarefas pendentes)&#13;</para>
+  <para>AIAgent -&gt; WhatsAppAPI: Envia resumo final pelo WhatsApp&#13;</para>
+  <para>AIAgent -&gt; TelegramAPI: Envia resumo final pelo Telegram&#13;</para>
+  <para>@enduml&#13;</para>
+  <para>------------------------&#13;</para>
+  <para>@startuml&#13;</para>
+  <para>actor GoogleCalendar as "Google Calendar"&#13;</para>
+  <para>participant GoogleCalendarTrigger as "Google Calendar Trigger"&#13;</para>
+  <para>participant AIAgent as "Agente de IA"&#13;</para>
+  <para>participant WhatsAppAPI as "WhatsApp API"&#13;</para>
+  <para>participant TelegramAPI as "Telegram API"&#13;</para>
+  <para>&#13;</para>
+  <para>GoogleCalendar -&gt; GoogleCalendarTrigger: NotificaÃ§Ã£o sobre criaÃ§Ã£o/inÃ­cio de evento&#13;</para>
+  <para>GoogleCalendarTrigger -&gt; AIAgent: Processa informaÃ§Ãµes do evento&#13;</para>
+  <para>alt Dados incompletos&#13;</para>
+  <para>    AIAgent -&gt; AIAgent: Preenche informaÃ§Ãµes padrÃ£o (ex.: data de hoje, tÃ­tulo genÃ©rico)&#13;</para>
+  <para>else Dados completos&#13;</para>
+  <para>    AIAgent -&gt; AIAgent: Confirma validade das informaÃ§Ãµes&#13;</para>
+  <para>end&#13;</para>
+  <para>AIAgent -&gt; WhatsAppAPI: Notifica usuÃ¡rios sobre o evento pelo WhatsApp&#13;</para>
+  <para>AIAgent -&gt; TelegramAPI: Notifica usuÃ¡rios sobre o evento pelo Telegram&#13;</para>
+  <para>@enduml</para>
+</article>
