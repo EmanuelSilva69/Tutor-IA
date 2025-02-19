@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36" version="26.0.14">
+  <diagram name="Página-1" id="21WHUIRxwxP6J9oD2b3n">
+    <mxGraphModel dx="1434" dy="780" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" target="G6Y-4tme1bJGPLJpTL6K-3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50" y="110" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-3" target="G6Y-4tme1bJGPLJpTL6K-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="380" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-3" value="Mensagem é enviada ao bot" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="140" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-5" target="G6Y-4tme1bJGPLJpTL6K-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-5" value="Mensagem é capturada" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-8" target="G6Y-4tme1bJGPLJpTL6K-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-8" target="G6Y-4tme1bJGPLJpTL6K-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="400" y="660" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-8" value="Mensagem válida?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="200" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-10" target="G6Y-4tme1bJGPLJpTL6K-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-10" value="Conteúdo da mensagem enviado para a API da OpenAI" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="210" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-12" target="G6Y-4tme1bJGPLJpTL6K-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="560" y="445" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-12" value="Mensagem analisada para obter resposta" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="340" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-14" target="G6Y-4tme1bJGPLJpTL6K-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-14" value="Resposta é gerada" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-16" target="G6Y-4tme1bJGPLJpTL6K-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-16" value="Resposta enviada para &quot;Whatsapp Business Cloud&quot;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-18" target="G6Y-4tme1bJGPLJpTL6K-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-18" value="Resposta enviada para o Whatsapp do usuário" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-19" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="384" y="675" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-20" value="Não" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="340" y="278" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-21" value="Sim" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="440" y="210" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-22" value="Trigger whatsapp" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="210" y="20" width="130" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-23" value="Processamento Telegram" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1115" y="10" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-25" target="G6Y-4tme1bJGPLJpTL6K-27">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1270" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-25" value="Mensagem enviada para ao bot" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1010" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-27" target="G6Y-4tme1bJGPLJpTL6K-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-27" value="Mensagem é capturada" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-29" target="G6Y-4tme1bJGPLJpTL6K-31">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-29" value="Conteúdo da mensagem enviado para a API da OpenAI" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-31" target="G6Y-4tme1bJGPLJpTL6K-33">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1300" y="398" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-31" value="Mensagem analisada para obter resposta" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="308" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-33" target="G6Y-4tme1bJGPLJpTL6K-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-33" value="Resposta é gerada" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="418" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-35" target="G6Y-4tme1bJGPLJpTL6K-36">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-35" value="Resposta enviada para o Telegram do usuário" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="525" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-36" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1275" y="630" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-38" target="G6Y-4tme1bJGPLJpTL6K-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-38" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="120" y="860" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-40" target="G6Y-4tme1bJGPLJpTL6K-42">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-40" value="Gmail trigger Monitora emails" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="845" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-42" target="G6Y-4tme1bJGPLJpTL6K-49">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="950" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-42" value="Email detectado" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="845" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-44" target="G6Y-4tme1bJGPLJpTL6K-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-44" value="API da OpenAI gera resumo do email" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1080" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-46" target="G6Y-4tme1bJGPLJpTL6K-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-46" value="Resumo é enviado para Whatsapp e Telegram" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1190" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-49" target="G6Y-4tme1bJGPLJpTL6K-44">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-49" target="G6Y-4tme1bJGPLJpTL6K-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-49" value="Conteúdo relevante?" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="960" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-50" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="600" y="1205" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-51" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="20" y="95" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-53" target="G6Y-4tme1bJGPLJpTL6K-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-53" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="905" y="95" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-54" value="Classificação e resumo de emails" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="240" y="780" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-56" target="G6Y-4tme1bJGPLJpTL6K-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-56" value="&quot;Gmail trigger&quot; monitora emails" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="855" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-58" target="G6Y-4tme1bJGPLJpTL6K-60">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-58" value="Email detectado" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="968" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-60" target="G6Y-4tme1bJGPLJpTL6K-62">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-60" value="Envia dados do email para a API da OpenAI" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1070" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-62" target="G6Y-4tme1bJGPLJpTL6K-64">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1310" y="1259" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-62" value="Cria evento no &quot;Google Calendar Tool&quot;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1169" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-64" target="G6Y-4tme1bJGPLJpTL6K-89">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-64" value="API da OpenAI configura um lembrete do evento no Google Calendar" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="1274" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-65" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-66" target="G6Y-4tme1bJGPLJpTL6K-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-66" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="925" y="870" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-67" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1361" y="1290" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-68" value="Gerenciamento de eventos do google calandar" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="965" y="800" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-69" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-70" target="G6Y-4tme1bJGPLJpTL6K-73">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-70" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;fontColor=#ffffff;strokeColor=#2D7600;" vertex="1" parent="1">
+          <mxGeometry x="1570" y="860" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-71" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="1725" y="1350" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-73" target="G6Y-4tme1bJGPLJpTL6K-75">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-73" value="&quot;Google Calendar trigger&quot; monitora eventos" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="845" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-75" target="G6Y-4tme1bJGPLJpTL6K-96">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-75" value="&quot;Google Calendar Trigger&quot; detecta um evento concluído" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="950" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-76" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-77" target="G6Y-4tme1bJGPLJpTL6K-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-77" value="API da OpenAI cria uma mensagem de conclusão" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="1150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-78" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-79" target="G6Y-4tme1bJGPLJpTL6K-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-79" value="Envia mensagem de para Whatsapp e Telegram" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="1250" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-71" target="G6Y-4tme1bJGPLJpTL6K-71">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-81" value="&amp;nbsp;Notificações de Conclusão de Atividades" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="790" width="240" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-82" value="Quando é feita a análise.&lt;div&gt;OK&lt;br&gt;&lt;br&gt;Quem é o Ai Agent?&lt;div&gt;R: API OpenAI. Atualizado em todos diagramas&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="280" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-83" value="Juntar os diagramas em um só?&lt;div&gt;R:Uma etapa funciona diferente, então talvez deixe assim mesmo&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="775" y="220" width="370" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-84" value="Não" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="505" y="968" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-85" value="Sim" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="400" y="1038" width="40" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-86" value="O que caracteriza conteúdo relevante&lt;br&gt;R: É relevane se o snippet do email tiver a palavra Atividade&lt;br&gt;&lt;br&gt;&lt;div&gt;&lt;br&gt;&lt;div&gt;Nota&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="520" y="890" width="340" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-87" value="Adicionar Monitorar email e Email detectado.&lt;div&gt;Obs: esqueci o contexto desse aqui&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1475" y="590" width="260" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-89" target="G6Y-4tme1bJGPLJpTL6K-67">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-89" value="Notifica usuário pelo Telegram e Whatsapp" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="1274" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-90" value="Whatsapp manda &quot;mini mensagens&quot;&lt;div&gt;Aqui só pega mensagem que o usuario manda de fato&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="50" y="220" width="310" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-91" value="Verifica se a mensagem está inserida em contexto academico" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="680" y="330" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-92" value="Verifica se o &quot;Snippet&quot; do email contém a palavra &quot;Atividade&quot;" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="228" y="960" width="156" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-93" value="Verifica se a mensagem está inserida em contexto academico" style="shape=note;whiteSpace=wrap;html=1;backgroundOutline=1;darkOpacity=0.05;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="298" width="190" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-94" value="Atualiza -&amp;gt; Cria" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="905" y="1184" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="G6Y-4tme1bJGPLJpTL6K-96" target="G6Y-4tme1bJGPLJpTL6K-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-96" value="Envia dados do evento para a API da OpenAi" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1680" y="1050" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-97" value="&amp;lt;- Foi adicionado" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1880" y="1160" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-98" value="Se não for de contexto academico, o bot manda uma mensagem padrão.&lt;div&gt;Nesse caso vale botar mais um desvio de fluxo ?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="615" y="450" width="410" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-99" value="Se não for de contexto academico, o bot manda uma mensagem padrão.&lt;div&gt;Nesse caso vale botar mais um desvio de fluxo ?&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1400" y="410" width="410" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="G6Y-4tme1bJGPLJpTL6K-100" value="Parte do whatsapp ainda vai ser implementada." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="1220" width="280" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
