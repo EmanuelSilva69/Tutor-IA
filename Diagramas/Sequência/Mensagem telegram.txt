@@ -1,0 +1,19 @@
+@startuml
+actor Usuario as "Usuário"
+participant TelegramTrigger as "Telegram Trigger"
+participant TextClassifier as "Classificador de Texto"
+participant AIAgent as "Agente de IA"
+participant TelegramAPI as "Telegram API"
+
+Usuario -> TelegramTrigger: Envia mensagem
+TelegramTrigger -> TelegramTrigger: Valida mensagem e remetente
+alt Mensagem irrelevante
+    TelegramTrigger -> Usuario: Responde "Mensagem fora do escopo acadêmico"
+    return
+else Mensagem relevante
+    TelegramTrigger -> TextClassifier: Classifica o conteúdo
+    TextClassifier -> AIAgent: Gera resposta com IA
+    AIAgent -> TelegramAPI: Envia resposta
+    TelegramAPI -> Usuario: Mensagem entregue
+end
+@enduml
